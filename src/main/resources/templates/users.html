@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Users</title>
+    <style>
+        th, td {
+            padding: 25px;
+        }
+    </style>
+</head>
+<body>
+<div style="border: 5px solid #ddd;padding:10px;margin-bottom:20px;">
+
+    <a href="http://localhost:8080/admin/new">Create new user</a>
+
+</div>
+<div style="border: 5px solid #ddd;padding:10px;margin-bottom:20px;">
+
+    <a href="http://localhost:8080/login">Exit</a>
+
+</div>
+
+
+<table>
+    <tr>
+        <th>All User</th>
+    </tr>
+</table>
+<table border="allUser">
+
+    <tr>
+        <th>Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Login</th>
+        <th>Password</th>
+        <th>Role</th>
+    </tr>
+    <tr th:each="user : ${allUsers}">
+        <td><a th:href="@{/{id}(id=${user.getId()})}" th:text="${user.firstName}"></a>
+        </td>
+        <td th:text="${user.lastName}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.userName}"></td>
+        <td th:text="${user.password}"></td>
+        <td th:text="${user.getRoles()}"></td>
+    </tr>
+
+
+</table>
+
+<dr/>
+
+</body>
+</html>
